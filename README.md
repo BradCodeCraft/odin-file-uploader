@@ -28,11 +28,20 @@ while a **Post** can only belong to one **User**.
 
 > **NOTE**: You do not need an account to access the routes above.
 
-`/files` - retrieves files page
+`/home` - retrieves home page
 
-`/files/:fileId` - retrieves file details of file id _fileId_
+`/home/files/new` - retrieves new file page
 
-`/files/new` - retrieves new file page
+`/home/files/:fileId` - retrieves file details of file id _fileId_
+
+`/home/folders/new` - retrieves new folder page
+
+`/home/folders/:folderId` - retrieves folder details of folder id _folderId_
+
+`/home/folders/:folderId/files` - retrieves files page for folder of id _fileId_
+
+`/home/folders/:folderId/files/add` - retrieves add file to folder page for folder
+of id _folderId_
 
 #### `POST` requests
 
@@ -40,12 +49,22 @@ while a **Post** can only belong to one **User**.
 
 `/sign-up` - creates a user if crendentials are valid
 
-`/files/:fileId` - updates file details of file id _fileId_ if the user is the
+`/home/files/new` - uploads a file
+
+`/home/files/:fileId` - updates file details of file id _fileId_ if the user is the
 author
 
-`/files/new` - uploads a file
+`/home/folders/new` - creates a folder
+
+`/home/folders/:folderId` - updates folder details of folder id _folderId_ if the
+user is the author
+
+`/home/folders/:folderId/files/add` - adds a file to folder id _folderId_
 
 #### `DELETE` requests
 
-`/files/:fileId/delete` - delete file details of file id _fileId_ if the user
+`/home/files/:fileId/delete` - delete file details of file id _fileId_ if the user
 is the author
+
+`/home/folders/:folderId/delete` - delete foldere details of foldere id _folderId_
+if the user is the author

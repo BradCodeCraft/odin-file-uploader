@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>File Uploader</title>
+    <link rel="stylesheet" href="/styles.css">  
+  </head>
+
+  <body>
+    <%- include("./share/navigationBar.ejs") %>
+
+    <div class="files-page page">
+      <h1>Welcome, <%= user.name %>!</h1>
+
+      <% if (locals.folders) { %>
+        <h2>Folders</h2>
+        <section class="folders">
+          <% if (folders.length !== 0) { %>
+            <% folders.forEach((folder) => { %>
+              <div class="card">
+                <a href="/folders/<%= folder.id %>/files" class="button-link">
+                  <%= folder.name %>
+                </a>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <a href="/folders/new" class="button-link">Create a folder</a>
+          <% } %>
+        </section>
+      <% } %>
+
+      <% if (locals.files) { %>
+        <h2>Files</h2>          
+        <section class="files">
+          <table class="files-table">
+            <tr>
+              <th>Name</th>
+            </tr> 
+            <% files.forEach((file) => { %>
+            <tr>
+              <td>
+                <a href="/home/files/<%= file.id %>" class="file">
+                  <%= file.name %>
+                </a>
+              </td>
+            </tr>
+            <% }) %>
+          </table>
+        </section> 
+      <% } else { %>
+        <h2>No files found!</h2>  
+      <% } %>
+    </div> 
+  </body>
+</html>
