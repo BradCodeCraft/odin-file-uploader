@@ -10,7 +10,7 @@ passport.use(
       const prisma = new PrismaClient();
       const user = await prisma.user.findFirst({
         where: {
-          username: username,
+          username: username.toLowerCase(),
         },
       });
       if (!user) return done(null, false, { message: "Incorrect username" });

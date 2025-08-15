@@ -102,6 +102,8 @@ button:active {
 
 .navigation-bar {
   padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navigation-bar > ul {
@@ -134,7 +136,8 @@ button:active {
 
 .form > label,
 .form > input,
-.form > textarea {
+.form > textarea,
+.form > select {
   font-size: 1.4rem;
 }
 
@@ -143,7 +146,8 @@ button:active {
 }
 
 .form > input,
-.form > textarea {
+.form > textarea,
+.form > select {
   padding: 2px 5px;
 }
 
@@ -170,6 +174,10 @@ button:active {
   text-align: center;
 }
 
+.form > button[type="submit"] {
+  margin: 0 auto;
+}
+
 .errors-list {
   padding: 5px 15px;
 
@@ -187,23 +195,33 @@ button:active {
   color: var(--orange-web);
 }
 
-.files-table {
+.folders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.table {
+  width: 100%;
+
   text-align: left;
 }
 
-.files-table th {
+.table th {
   font-size: 1.8rem;
 }
 
-.files-table td {
+.table td {
   padding: 4px 8px;
+
+  display: flex;
 }
 
-.files-table td:hover {
+.table td:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.files-table .file {
+.table .file {
   text-decoration: none;
 
   display: block;

@@ -99,10 +99,11 @@ export const logInPagePost = [
   async (req, res, done) => {
     const errors = validationResult(req);
 
-    if (!errors.isEmpty())
+    if (!errors.isEmpty()) {
       return res.render("auth/logIn", { errors: errors.array() });
-
-    done();
+    } else {
+      done();
+    }
   },
   passport.authenticate("local", {
     successRedirect: "/home",

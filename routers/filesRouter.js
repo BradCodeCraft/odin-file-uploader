@@ -1,22 +1,20 @@
 import { Router } from "express";
 import {
   deleteFileGet,
-  filesPageGet,
   newFileFormGet,
   newFileFormPost,
   viewFileGet,
 } from "../controllers/filesController.js";
 import multer from "multer";
 
-const fileRouter = Router({ mergeParams: true });
+const filesRouter = Router({ mergeParams: true });
 const upload = multer({ dest: "uploads/" });
 
-fileRouter.route("/").get(filesPageGet);
-fileRouter
+filesRouter
   .route("/new")
   .get(newFileFormGet)
   .post(upload.single("file"), newFileFormPost);
-fileRouter.route("/:fileId").get(viewFileGet);
-fileRouter.route("/:fileId/delete").get(deleteFileGet);
+filesRouter.route("/:fileId").get(viewFileGet);
+filesRouter.route("/:fileId/delete").get(deleteFileGet);
 
-export default fileRouter;
+export default filesRouter;

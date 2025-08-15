@@ -8,9 +8,12 @@
   
   <body>
     <div class="log-in-page page">
+
       <h1>Log In</h1>
 
       <form action="/log-in" method="post" class="log-in-form form">
+        <%- include("../share/errors.ejs") %>
+
         <label for="username">Username</label>
         <input 
           type="text" 

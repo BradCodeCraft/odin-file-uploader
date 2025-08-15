@@ -36,6 +36,9 @@ app.use(passport.session());
 app.use("/", indexRouter);
 app.use("/", authRouter);
 app.use("/home", allowsAuthenticatedUsersOnly, homeRouter);
+app.use((err, req, res, next) => {
+  res.status(404).send(err.message);
+});
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, async () => {

@@ -18,13 +18,13 @@
           <% if (folders.length !== 0) { %>
             <% folders.forEach((folder) => { %>
               <div class="card">
-                <a href="/folders/<%= folder.id %>/files" class="button-link">
+                <a href="/home/folders/<%= folder.id %>/files" class="button-link">
                   <%= folder.name %>
                 </a>
               </div>
             <% }) %>
           <% } else { %>
-            <a href="/folders/new" class="button-link">Create a folder</a>
+            <a href="/home/folders/new" class="button-link">Create a folder</a>
           <% } %>
         </section>
       <% } %>
@@ -32,7 +32,7 @@
       <% if (locals.files) { %>
         <h2>Files</h2>          
         <section class="files">
-          <table class="files-table">
+          <table class="files-table table">
             <tr>
               <th>Name</th>
             </tr> 
