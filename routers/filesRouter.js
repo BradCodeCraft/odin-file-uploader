@@ -8,7 +8,7 @@ import {
 import multer from "multer";
 
 const filesRouter = Router({ mergeParams: true });
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ storage: multer.memoryStorage() });
 
 filesRouter
   .route("/new")

@@ -1,5 +1,6 @@
 import { request, response } from "express";
 import { PrismaClient } from "../generated/prisma/client.js";
+import { createClient } from "@supabase/supabase-js";
 
 /**
  * @param {request} req
@@ -15,14 +16,25 @@ export function newFileFormGet(req, res) {
  */
 export async function newFileFormPost(req, res) {
   try {
-    const { originalname, size } = req.file;
+    const supabase = createClient(
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_KEY,
+    );
+    const { originalname, buffer, size, mimetype } = req.file;
+    const filePath = `public/${Date.now()}-${originalname}`;
+    const { data, error } = await supabase.storage
+      .from(process.env.SUPABASE_BUCKET_NAME)
+      .upload(filePath, buffer, {
+        contentType: mimetype,
+        upsert: true,
+      });
     const prisma = new PrismaClient();
     await prisma.file.create({
       data: {
         name: originalname,
         size: size,
         authorId: req.user.id,
-        downloadUrl: "",
+        downloadUrl: `https://${process.env.SUPABASE_PROJECT_ID}.supabase.co/storage/v1/object/public/${data.fullPath}?download`,
       },
     });
     res.redirect("/home");

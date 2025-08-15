@@ -156,7 +156,7 @@ export async function removeFileFromFolderGet(req, res) {
       },
     });
 
-    res.redirect(`/home/folder/${folderId}/files`);
+    res.redirect(`/home/folders/${folderId}/files`);
   } catch (e) {
     console.error(e);
   }
