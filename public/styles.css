@@ -23,6 +23,8 @@ body {
 
   background-color: var(--oxford-blue);
   color: var(--white);
+
+  cursor: default;
 }
 
 h1 {
@@ -39,6 +41,29 @@ a {
 
 a:visited {
   color: var(--orange-web);
+}
+
+button {
+  will-change: transform;
+  transition: transform 0.25s ease-in-out;
+
+  background-color: var(--white);
+
+  border: none;
+  border-radius: 20px;
+
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  padding: 5px 15px;
+
+  width: max-content;
+
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.9);
 }
 
 .page {
@@ -73,4 +98,133 @@ a:visited {
 
 .button-link:active {
   transform: scale(0.9);
+}
+
+.navigation-bar {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation-bar > ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+
+  list-style: none;
+
+  font-size: 1.4rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  width: 500px;
+
+  margin: auto;
+  padding: 20px 40px;
+
+  background-color: var(--black);
+
+  color: var(--platinum);
+
+  border-radius: 20px;
+}
+
+.form > label,
+.form > input,
+.form > textarea,
+.form > select {
+  font-size: 1.4rem;
+}
+
+.form > label {
+  font-weight: bold;
+}
+
+.form > input,
+.form > textarea,
+.form > select {
+  padding: 2px 5px;
+}
+
+.form > textarea {
+  resize: none;
+}
+
+.form > .form-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.form > .form-buttons > button,
+.form > .form-buttons > a {
+  width: 40%;
+  text-align: center;
+}
+
+.form > .form-buttons > .delete {
+  width: calc(100% - 35px);
+
+  background-color: var(--white);
+
+  text-align: center;
+}
+
+.form > button[type="submit"] {
+  margin: 0 auto;
+}
+
+.errors-list {
+  padding: 5px 15px;
+
+  list-style-type: decimal;
+}
+
+.errors-list > p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.errors-list li {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--orange-web);
+}
+
+.folders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.table {
+  width: 100%;
+
+  text-align: left;
+}
+
+.table th {
+  font-size: 1.8rem;
+}
+
+.table td {
+  padding: 4px 8px;
+
+  display: flex;
+}
+
+.table td:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.table .file {
+  text-decoration: none;
+
+  display: block;
+
+  width: 100%;
 }

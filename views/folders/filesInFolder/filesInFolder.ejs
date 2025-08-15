@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Folder Uploader</title>
+    <link rel="stylesheet" href="/styles.css">  
+  </head>
+
+  <body>
+    <%- include("../../share/navigationBar.ejs") %>
+
+    <div class="files-in-folder-page page">
+      <a href="/home/folders/<%= folderId %>/files/add" class="button-link">Add files</a>
+
+      <hr />
+
+      <% if (locals.files) { %>
+        <section class="files-in-folder">
+          <h1>Files</h1>
+          <table class="files-in-folder-table table">
+            <tr>
+              <th>Name</th>
+            </tr> 
+            <% files.forEach((file) => { %>
+            <tr>
+              <td>
+                <a href="/home/folders/<%= folderId %>/files/<%= file.id %>" class="file">
+                  <%= file.name %>
+                </a>
+                <a href="/home/folders/<%= folderId %>/files/<%= file.id %>/remove">Remove</a>
+              </td>
+            </tr>
+            <% }) %>
+          </table>
+        </section> 
+      <% } %>
+
+      <hr />
+
+      <a href="/home/folders/<%= folderId %>/delete" class="button-link">Delete Folder</a>
+    </div> 
+  </body>
+</html>

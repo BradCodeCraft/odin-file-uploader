@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>File Uploader</title>
+    <link rel="stylesheet" href="/styles.css">  
+  </head>
+
+  <body>
+    <%- include("../share/navigationBar.ejs") %>
+
+    <div class="new-file-page page">
+      <form 
+        action="/home/folders/<%= folderId %>/files/add" 
+        method="post" 
+        class="add-file-to-folder-form form"
+      >
+        <%- include("../share/errors.ejs") %>
+
+        <h1>Select file</h1>
+
+        <% if (locals.files) { %>
+          <select class="select-file" name="addFileId" required>
+            <option value="default">Choose a file</option>
+            <% files.forEach((file) => { %>
+              <option value="<%= file.id %>"><%= file.name %></option>
+            <% }) %>
+          </select>
+        <% } %>
+        
+        <button type="submit">Add</button>
+      </form>
+    </div> 
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>File Uploader</title>
+    <link rel="stylesheet" href="/styles.css">  
+  </head>
+
+  <body>
+    <%- include("../share/navigationBar.ejs") %>
+
+    <div class="new-file-page page">
+      <form 
+        action="/home/files/new" 
+        method="post" 
+        enctype="multipart/form-data" 
+        class="new-file-form form"
+      >
+        <input type="file" name="file" required />
+
+        <button type="submit">Submit</button>
+      </form>
+    </div> 
+  </body>
+</html>
